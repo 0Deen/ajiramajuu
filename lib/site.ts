@@ -1,56 +1,48 @@
-// ============================================================
-// AJIRA MAJUU — Company Configuration
-// Single source of truth for company identity, contact details,
-// navigation, destinations, services and SEO information.
-//
-// IMPORTANT:
-// Only add phone numbers, addresses, emails or social accounts
-// that have been officially confirmed by Ajira Majuu.
-// ============================================================
+// lib/site.ts
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://ajiramajuu.com";
 
-// ============================================================
-// COMPANY INFORMATION
-// ============================================================
+// ==========================================================
+// COMPANY
+// ==========================================================
 
 export const COMPANY = {
   name: "Ajira Majuu",
-
-  legalDescriptor: "Private Overseas Recruitment Agency in Kenya",
-
+  legalName: "Ajira Majuu",
   tagline: "Connecting Kenyan Talent to Global Opportunities.",
-
-  swahili: "Njoo, Tusafiri Ughaibuni.",
+  swahiliTagline: "Njoo, Tusafiri Ughaibuni.",
 
   description:
-    "Ajira Majuu is a Kenya-based overseas recruitment agency connecting qualified Kenyan job seekers with international employment opportunities across the Gulf region and other global destinations.",
+    "Ajira Majuu is a private overseas recruitment agency in Kenya connecting qualified Kenyan candidates with verified employment opportunities abroad.",
 
-  shortDescription:
-    "Overseas recruitment agency connecting Kenyan talent with verified international job opportunities.",
-
-  country: "Kenya",
-
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
   // CONTACT NUMBERS
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
 
+  // Backward-compatible properties.
+  // Existing website components use these properties.
+  phoneDisplay: "+254 115 614 253",
+  phoneHref: "tel:+254115614253",
+  whatsappNumber: "254115614253",
+
+  // Primary phone
   primaryPhone: {
     display: "+254 115 614 253",
     href: "tel:+254115614253",
     number: "254115614253",
   },
 
+  // Secondary phone
   secondaryPhone: {
     display: "+254 706 947 876",
     href: "tel:+254706947876",
     number: "254706947876",
   },
 
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
   // WHATSAPP
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
 
   primaryWhatsApp: {
     display: "+254 115 614 253",
@@ -64,49 +56,46 @@ export const COMPANY = {
     href: "https://wa.me/254706947876",
   },
 
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
   // EMAIL
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
 
   primaryEmail: "sharon@ajiramajuu.com",
-
   secondaryEmail: "ajiramajuuh@gmail.com",
 
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
   // WEBSITE
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
 
   website: "https://www.ajiramajuu.com",
-
   domain: "ajiramajuu.com",
 
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
   // OFFICE
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
 
   address: "Twiga Towers, Murang'a Road, Nairobi, Kenya",
-
   addressShort: "Twiga Towers, Murang'a Road, Nairobi",
-
   city: "Nairobi",
+  country: "Kenya",
 
-  // ----------------------------------------------------------
-  // BRAND / RECRUITMENT MESSAGE
-  // ----------------------------------------------------------
+  // --------------------------------------------------------
+  // BRAND MESSAGING
+  // --------------------------------------------------------
 
   candidatePromise:
-    "Verified opportunities, transparent recruitment and real support from real people.",
+    "We connect Kenyan talent with legitimate international employment opportunities while providing support throughout the recruitment journey.",
 
   safetyMessage:
-    "Candidates should only use official Ajira Majuu communication channels and should never make unofficial payments.",
+    "Candidate safety comes first. We encourage applicants to verify job information and avoid unofficial recruitment payments.",
 
   employerMessage:
-    "Helping international employers connect with suitable Kenyan talent through a structured recruitment process.",
+    "We help international employers connect with qualified Kenyan talent across multiple sectors.",
 } as const;
 
-// ============================================================
-// EASY CONTACT HELPERS
-// ============================================================
+// ==========================================================
+// CONTACT HELPERS
+// ==========================================================
 
 export const CONTACT = {
   phone: COMPANY.primaryPhone,
@@ -121,294 +110,283 @@ export const CONTACT = {
   address: COMPANY.address,
 } as const;
 
-// ============================================================
+// ==========================================================
 // PRIMARY NAVIGATION
-// ============================================================
+// ==========================================================
 
 export const NAV_PRIMARY = [
   {
-    href: "/",
     label: "Home",
-    icon: "home",
+    href: "/",
   },
   {
-    href: "/jobs",
     label: "Jobs",
-    icon: "briefcase",
+    href: "/jobs",
   },
   {
-    href: "/destinations",
     label: "Destinations",
-    icon: "globe",
+    href: "/destinations",
   },
   {
-    href: "/apply",
     label: "Apply",
-    icon: "send",
+    href: "/apply",
   },
   {
-    href: "/contact",
     label: "Contact",
-    icon: "phone",
+    href: "/contact",
   },
 ] as const;
 
-// ============================================================
+// ==========================================================
 // MORE NAVIGATION
-// ============================================================
+// ==========================================================
 
 export const NAV_MORE = [
   {
-    href: "/assistant",
     label: "AI Assistant",
-    icon: "sparkles",
-    hint: "Ask questions about working abroad",
+    href: "/ai-assistant",
   },
   {
-    href: "/how-it-works",
     label: "How It Works",
-    icon: "route",
-    hint: "Understand the journey from application to deployment",
+    href: "/how-it-works",
   },
   {
+    label: "About",
     href: "/about",
-    label: "About Ajira Majuu",
-    icon: "building",
-    hint: "Learn who we are and what we do",
   },
   {
-    href: "/resources",
     label: "Resources",
-    icon: "book",
-    hint: "Helpful guides for overseas job seekers",
+    href: "/resources",
   },
   {
-    href: "/faq",
     label: "FAQ",
-    icon: "help",
-    hint: "Answers to frequently asked questions",
+    href: "/faq",
   },
   {
-    href: "/recruitment-safety",
     label: "Recruitment Safety",
-    icon: "shield",
-    hint: "Learn how to identify and avoid recruitment scams",
+    href: "/recruitment-safety",
   },
   {
-    href: "/for-employers",
     label: "For Employers",
-    icon: "users",
-    hint: "Request recruitment support and Kenyan talent",
+    href: "/for-employers",
   },
 ] as const;
 
-// ============================================================
+// ==========================================================
 // DESTINATIONS
-// Useful for destination pages, internal links and SEO.
-// ============================================================
+// ==========================================================
 
 export const DESTINATIONS = [
   {
     name: "Saudi Arabia",
     slug: "saudi-arabia",
     href: "/destinations/saudi-arabia",
+    description:
+      "Explore employment opportunities for qualified Kenyan workers in Saudi Arabia.",
   },
   {
     name: "United Arab Emirates",
-    shortName: "UAE",
     slug: "uae",
     href: "/destinations/uae",
+    description:
+      "Discover overseas jobs in the United Arab Emirates for Kenyan talent.",
   },
   {
     name: "Qatar",
     slug: "qatar",
     href: "/destinations/qatar",
+    description:
+      "Find international employment opportunities in Qatar across multiple sectors.",
   },
   {
     name: "Kuwait",
     slug: "kuwait",
     href: "/destinations/kuwait",
+    description:
+      "Explore available employment opportunities in Kuwait.",
   },
   {
     name: "Bahrain",
     slug: "bahrain",
     href: "/destinations/bahrain",
+    description:
+      "Connect with employment opportunities in Bahrain.",
   },
   {
     name: "Oman",
     slug: "oman",
     href: "/destinations/oman",
+    description:
+      "Discover overseas employment opportunities in Oman.",
   },
 ] as const;
 
-// ============================================================
+// ==========================================================
 // JOB CATEGORIES
-// Useful for Jobs pages, filters and SEO landing pages.
-// ============================================================
+// ==========================================================
 
 export const JOB_CATEGORIES = [
   {
-    name: "Healthcare Jobs",
+    name: "Healthcare",
     slug: "healthcare",
+    href: "/jobs/healthcare",
   },
   {
-    name: "Hospitality Jobs",
+    name: "Hospitality",
     slug: "hospitality",
+    href: "/jobs/hospitality",
   },
   {
-    name: "Construction Jobs",
+    name: "Construction",
     slug: "construction",
+    href: "/jobs/construction",
   },
   {
-    name: "Driving Jobs",
+    name: "Driving",
     slug: "driving",
+    href: "/jobs/driving",
   },
   {
-    name: "Security Jobs",
+    name: "Security",
     slug: "security",
+    href: "/jobs/security",
   },
   {
-    name: "Domestic Jobs",
+    name: "Domestic Work",
     slug: "domestic",
+    href: "/jobs/domestic",
   },
   {
-    name: "Caregiver Jobs",
-    slug: "caregivers",
+    name: "Caregiver",
+    slug: "caregiver",
+    href: "/jobs/caregiver",
   },
   {
-    name: "Information Technology Jobs",
-    slug: "information-technology",
+    name: "IT",
+    slug: "it",
+    href: "/jobs/it",
   },
   {
-    name: "Cleaning Jobs",
+    name: "Cleaning",
     slug: "cleaning",
+    href: "/jobs/cleaning",
   },
   {
-    name: "Beauty & Salon Jobs",
+    name: "Beauty & Salon",
     slug: "beauty",
+    href: "/jobs/beauty",
   },
   {
-    name: "Teaching & Tutoring Jobs",
+    name: "Teaching & Tutoring",
     slug: "teaching",
+    href: "/jobs/teaching",
   },
 ] as const;
 
-// ============================================================
+// ==========================================================
 // RECRUITMENT PROCESS
-// ============================================================
+// ==========================================================
 
 export const RECRUITMENT_PROCESS = [
   {
-    step: 1,
+    number: 1,
     title: "Apply",
     description:
-      "Submit your application and personal details through Ajira Majuu.",
+      "Submit your application for a suitable overseas employment opportunity.",
   },
   {
-    step: 2,
+    number: 2,
     title: "Screening",
     description:
-      "Candidate information and qualifications are reviewed against available opportunities.",
+      "Our recruitment team reviews your qualifications and suitability for the role.",
   },
   {
-    step: 3,
+    number: 3,
     title: "Interview",
     description:
-      "Shortlisted candidates proceed to the relevant interview process.",
+      "Shortlisted candidates proceed to employer or recruitment interviews.",
   },
   {
-    step: 4,
+    number: 4,
     title: "Documentation",
     description:
-      "Successful candidates receive guidance on the required employment and travel documentation.",
+      "Successful candidates receive support with the required employment and travel documentation.",
   },
   {
-    step: 5,
+    number: 5,
     title: "Pre-Departure Support",
     description:
-      "Candidates receive guidance and preparation before travelling to their employment destination.",
+      "Candidates receive guidance and preparation before travelling abroad.",
   },
   {
-    step: 6,
+    number: 6,
     title: "Deployment",
     description:
-      "Candidates travel to begin their overseas employment journey.",
+      "Qualified candidates proceed to their international employment destination.",
   },
 ] as const;
 
-// ============================================================
+// ==========================================================
 // SEO
-// Central SEO information that can be reused by Next.js metadata.
-// ============================================================
+// ==========================================================
 
 export const SEO = {
-  title:
-    "Ajira Majuu | Overseas Jobs & Recruitment Agency in Kenya",
+  title: "Ajira Majuu | Overseas Jobs & Recruitment Agency in Kenya",
 
-  titleTemplate:
-    "%s | Ajira Majuu",
+  titleTemplate: "%s | Ajira Majuu",
 
   description:
-    "Ajira Majuu connects Kenyan job seekers with overseas employment opportunities in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman. Explore international jobs, apply online and get recruitment support.",
+    "Ajira Majuu is a private overseas recruitment agency in Kenya connecting Kenyan talent with international jobs in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman.",
 
   keywords: [
     "Ajira Majuu",
-    "Ajira Majuu Kenya",
-    "Ajira Majuu jobs",
-    "Ajira Majuu recruitment agency",
-
     "overseas jobs Kenya",
-    "jobs abroad for Kenyans",
-    "international jobs for Kenyans",
+    "jobs abroad Kenya",
     "overseas recruitment agency Kenya",
-    "recruitment agency Nairobi",
-    "overseas recruitment Nairobi",
-
-    "Gulf jobs for Kenyans",
-    "Middle East jobs Kenya",
-    "jobs in Gulf countries for Kenyans",
-
-    "Saudi Arabia jobs for Kenyans",
-    "Saudi jobs Kenya",
-    "UAE jobs for Kenyans",
-    "Dubai jobs for Kenyans",
-    "Qatar jobs for Kenyans",
-    "Kuwait jobs for Kenyans",
-    "Bahrain jobs for Kenyans",
-    "Oman jobs for Kenyans",
-
-    "caregiver jobs abroad Kenya",
-    "driver jobs abroad Kenya",
-    "hospitality jobs abroad Kenya",
-    "construction jobs abroad Kenya",
-    "security jobs abroad Kenya",
-    "cleaning jobs abroad Kenya",
-    "domestic jobs abroad Kenya",
-    "IT jobs abroad Kenya",
-    "healthcare jobs abroad Kenya",
-
-    "apply for overseas jobs Kenya",
-    "work abroad from Kenya",
-    "foreign jobs for Kenyans",
-    "international recruitment Kenya",
+    "recruitment agency Kenya",
+    "foreign jobs Kenya",
+    "international jobs Kenya",
+    "Gulf jobs Kenya",
+    "Saudi Arabia jobs Kenya",
+    "UAE jobs Kenya",
+    "Dubai jobs Kenya",
+    "Qatar jobs Kenya",
+    "Kuwait jobs Kenya",
+    "Bahrain jobs Kenya",
+    "Oman jobs Kenya",
+    "healthcare jobs abroad",
+    "hospitality jobs abroad",
+    "construction jobs abroad",
+    "driving jobs abroad",
+    "security jobs abroad",
+    "domestic jobs abroad",
+    "caregiver jobs abroad",
+    "IT jobs abroad",
+    "cleaning jobs abroad",
+    "beauty jobs abroad",
+    "teaching jobs abroad",
+    "jobs for Kenyans abroad",
   ],
 
   openGraph: {
-    type: "website",
-    locale: "en_KE",
-    siteName: "Ajira Majuu",
-    title:
-      "Ajira Majuu | Connecting Kenyan Talent to Global Opportunities",
+    title: "Ajira Majuu | Overseas Jobs & Recruitment Agency in Kenya",
+
     description:
-      "Explore overseas job opportunities and recruitment support for Kenyan candidates seeking employment abroad.",
+      "Connecting Kenyan talent with international employment opportunities across Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman.",
+
     url: SITE_URL,
+
+    siteName: "Ajira Majuu",
+
+    type: "website",
+
+    locale: "en_KE",
   },
 } as const;
 
-// ============================================================
-// STRUCTURED DATA / GOOGLE BUSINESS INFORMATION
-// Can be used to generate JSON-LD in the root layout.
-// ============================================================
+// ==========================================================
+// ORGANIZATION SCHEMA
+// ==========================================================
 
 export const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
@@ -420,7 +398,7 @@ export const ORGANIZATION_SCHEMA = {
 
   description: COMPANY.description,
 
-  email: COMPANY.primaryEmail,
+  email: `mailto:${COMPANY.primaryEmail}`,
 
   telephone: COMPANY.primaryPhone.display,
 
@@ -444,6 +422,7 @@ export const ORGANIZATION_SCHEMA = {
       areaServed: "KE",
       availableLanguage: ["English", "Swahili"],
     },
+
     {
       "@type": "ContactPoint",
       telephone: COMPANY.secondaryPhone.display,
@@ -454,41 +433,52 @@ export const ORGANIZATION_SCHEMA = {
   ],
 } as const;
 
-// ============================================================
-// DEFAULT WHATSAPP MESSAGES
-// ============================================================
+// ==========================================================
+// WHATSAPP MESSAGES
+// ==========================================================
 
 export const WHATSAPP_MESSAGES = {
   general:
-    "Hello Ajira Majuu, I would like to learn more about your overseas job opportunities.",
+    "Hello Ajira Majuu, I would like to enquire about overseas job opportunities.",
 
   jobs:
-    "Hello Ajira Majuu, I am interested in the overseas jobs currently available. Please assist me.",
+    "Hello Ajira Majuu, I would like to know about the latest available overseas jobs.",
 
   application:
-    "Hello Ajira Majuu, I would like assistance with my overseas job application.",
+    "Hello Ajira Majuu, I need help with my job application.",
+
+  recruitment:
+    "Hello Ajira Majuu, I would like to know more about your recruitment process.",
 
   employer:
-    "Hello Ajira Majuu, I am interested in recruitment support for our organization.",
+    "Hello Ajira Majuu, I am an employer interested in recruiting Kenyan talent.",
 } as const;
 
-// ============================================================
-// WHATSAPP LINK GENERATOR
-// ============================================================
+// ==========================================================
+// HELPERS
+// ==========================================================
 
 export function getWhatsAppLink(
   message: string = WHATSAPP_MESSAGES.general,
-  number: string = COMPANY.primaryWhatsApp.number
+  phone: string = COMPANY.primaryWhatsApp.number,
 ) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
-// ============================================================
-// EMAIL LINK GENERATOR
-// ============================================================
-
 export function getEmailLink(
-  subject = "Ajira Majuu Enquiry"
+  subject = "Ajira Majuu Enquiry",
+  body = "",
+  email: string = COMPANY.primaryEmail,
 ) {
-  return `mailto:${COMPANY.primaryEmail}?subject=${encodeURIComponent(subject)}`;
+  const params = new URLSearchParams();
+
+  if (subject) {
+    params.set("subject", subject);
+  }
+
+  if (body) {
+    params.set("body", body);
+  }
+
+  return `mailto:${email}?${params.toString()}`;
 }
